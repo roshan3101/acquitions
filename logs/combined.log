@@ -26,3 +26,40 @@
 {"level":"info","message":"::1 - - [17/Nov/2025:10:25:46 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 115 \"-\" \"PostmanRuntime/7.49.0\"","service":"acquitions-api"}
 {"level":"info","message":"User signed out successfully","service":"acquitions-api"}
 {"level":"info","message":"::1 - - [17/Nov/2025:10:26:35 +0000] \"POST /api/auth/sign-out HTTP/1.1\" 200 42 \"-\" \"PostmanRuntime/7.49.0\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:10:49:02 +0000] \"GET /health HTTP/1.1\" 200 74 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:10:49:15 +0000] \"GET /health HTTP/1.1\" 200 74 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:10:49:16 +0000] \"GET /health HTTP/1.1\" 200 74 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:10:49:17 +0000] \"GET /health HTTP/1.1\" 200 74 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:10:49:18 +0000] \"GET /health HTTP/1.1\" 200 74 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0\"","service":"acquitions-api"}
+{"ip":"::1","level":"warn","message":"Rate limit request blocked","path":"/health","service":"acquitions-api","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"level":"info","message":"::1 - - [17/Nov/2025:10:49:18 +0000] \"GET /health HTTP/1.1\" 429 86 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0\"","service":"acquitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [17/Nov/2025:13:13:58 +0000] \"GET /health HTTP/1.1\" 200 75 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0\"","service":"acquitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [17/Nov/2025:13:14:04 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0\"","service":"acquitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [17/Nov/2025:13:14:07 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0\"","service":"acquitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [17/Nov/2025:13:14:07 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0\"","service":"acquitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [17/Nov/2025:13:14:08 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0\"","service":"acquitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [17/Nov/2025:13:14:09 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0\"","service":"acquitions-api"}
+{"ip":"::ffff:172.18.0.1","level":"warn","message":"Rate limit request blocked","path":"/health","service":"acquitions-api","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [17/Nov/2025:13:14:10 +0000] \"GET /health HTTP/1.1\" 429 86 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0\"","service":"acquitions-api"}
+{"ip":"::1","level":"warn","message":"Rate limit request blocked","path":"/health","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:14:25 +0000] \"GET /health HTTP/1.1\" 429 86 \"-\" \"-\"","service":"acquitions-api"}
+{"ip":"::1","level":"warn","message":"Rate limit request blocked","path":"/health","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:14:56 +0000] \"GET /health HTTP/1.1\" 429 86 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:15:26 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:15:57 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquitions-api"}
+{"ip":"::ffff:172.18.0.1","level":"warn","message":"Bot request blocked","path":"/api/auth/sign-up","service":"acquitions-api","userAgent":"PostmanRuntime/7.49.1"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [17/Nov/2025:13:15:59 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 429 102 \"-\" \"PostmanRuntime/7.49.1\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:16:27 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:16:58 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:17:29 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:17:59 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:18:30 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:19:00 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:22:14 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"error","message":"Error creating the user  User with this email already exists","service":"acquitions-api","stack":"Error: User with this email already exists\n    at createUser (file:///app/src/services/auth.service.js:29:39)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async signup (file:///app/src/controllers/auth.controller.js:28:18)"}
+{"level":"error","message":"Failed to sign up user  User with this email already exists","service":"acquitions-api","stack":"Error: User with this email already exists\n    at createUser (file:///app/src/services/auth.service.js:29:39)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async signup (file:///app/src/controllers/auth.controller.js:28:18)"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [17/Nov/2025:13:22:24 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 32 \"-\" \"PostmanRuntime/7.49.1\"","service":"acquitions-api"}
+{"level":"info","message":"User created successfully: roshan12@gmail.com","service":"acquitions-api"}
+{"level":"info","message":"User registered successfully: roshan12@gmail.com","service":"acquitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [17/Nov/2025:13:22:35 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 118 \"-\" \"PostmanRuntime/7.49.1\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:22:44 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"-\"","service":"acquitions-api"}

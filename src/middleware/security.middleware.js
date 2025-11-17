@@ -4,23 +4,23 @@ import { slidingWindow } from '@arcjet/node';
 
 export const securityMiddleware = async (req, res, next) => {
     try {
+        if (req.path === '/health' || !req.get('User-Agent')) {
+            return next();
+        }
+
         const role = req.user?.role || 'guest';
         
         let limit;
-        let message;
 
         switch(role) {
             case 'admin':
-                limit=20
-                message='Admin request limit exceeded. Slow down'
+                limit = 20;
                 break;
             case 'user':
-                limit=10
-                message='User request limit exceeded. Slow down'
+                limit = 10;
                 break;
             default:
-                limit=5
-                message='Guest request limit exceeded. Slow down'
+                limit = 5;
                 break;
         }
 
@@ -28,15 +28,22 @@ export const securityMiddleware = async (req, res, next) => {
 
         const decision = await client.protect(req);
 
+        // Only block if it's a confirmed automated bot, not API clients like Postman
         if(decision.isDenied() && decision.reason.isBot()) {
+            const userAgent = req.get('User-Agent') || 'Unknown';
+            // Allow Postman and other API testing tools
+            if (userAgent.includes('Postman') || userAgent.includes('Insomnia') || userAgent.includes('curl') || userAgent.includes('httpie')) {
+                return next();
+            }
+            
             logger.warn('Bot request blocked', {
                 ip: req.ip,
-                userAgent: req.get('User-Agent'),
+                userAgent: userAgent,
                 path: req.path
             });
             return res.status(429).json({
-                error: 'Too many requests',
-                message: 'You have exceeded the request limit. Please try again later.'
+                error: 'Bot detected',
+                message: 'Automated bots are not allowed. Please use a proper API client.'
             });
         }
 
@@ -69,9 +76,9 @@ export const securityMiddleware = async (req, res, next) => {
 
     } catch (error) {
         logger.error(`Arcjet middleware error `, error);
-        res.status(500).josn({
+        return res.status(500).json({
             error: 'Internal server error',
             message: 'Something went wrong with security middleware'
-        })
+        });
     }
 }
