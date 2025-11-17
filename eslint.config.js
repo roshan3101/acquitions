@@ -24,7 +24,14 @@ export default [
       'linebreak-style': ['error', 'unix'],
       quotes: ['error', 'single'],
       semi: ['error', 'always'],
-      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      'no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+        },
+      ],
       'no-console': 'off',
       'prefer-const': 'error',
       'no-var': 'error',
@@ -33,7 +40,7 @@ export default [
     },
   },
   {
-    files: ['tests/**/*.js'],
+    files: ['test/**/*.js', 'tests/**/*.js', '**/*.test.js', '**/*.spec.js'],
     languageOptions: {
       globals: {
         describe: 'readonly',

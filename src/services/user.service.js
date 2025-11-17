@@ -1,25 +1,29 @@
 import logger from '#config/logger.js';
-import bcrypt from 'bcrypt';
 import { db } from '#config/database.js';
-import { eq, and, like, or, desc, asc } from 'drizzle-orm';
+import { eq, like, or, desc, asc } from 'drizzle-orm';
 import { users } from '#models/user.model.js';
 import { hashPassword } from './auth.service.js';
 
-
-export const getAllUsers = async ({ page = 1, limit = 10, search = '', sortBy = 'created_at', sortOrder = 'desc' }) => {
+export const getAllUsers = async ({
+  page = 1,
+  limit = 10,
+  search = '',
+  sortBy = 'created_at',
+  sortOrder = 'desc',
+}) => {
   try {
     const offset = (page - 1) * limit;
-    
+
     // Validate and map sortBy field
     const sortFieldMap = {
-      'id': users.id,
-      'name': users.name,
-      'email': users.email,
-      'role': users.role,
-      'created_at': users.created_at,
-      'updated_at': users.updated_at,
+      id: users.id,
+      name: users.name,
+      email: users.email,
+      role: users.role,
+      created_at: users.created_at,
+      updated_at: users.updated_at,
     };
-    
+
     const sortField = sortFieldMap[sortBy] || users.created_at;
     const orderBy = sortOrder === 'asc' ? asc(sortField) : desc(sortField);
 
@@ -41,14 +45,16 @@ export const getAllUsers = async ({ page = 1, limit = 10, search = '', sortBy = 
     const total = allUsers.length;
 
     // Get paginated results
-    let dataQuery = db.select({
-      id: users.id,
-      name: users.name,
-      email: users.email,
-      role: users.role,
-      created_at: users.created_at,
-      updated_at: users.updated_at,
-    }).from(users);
+    let dataQuery = db
+      .select({
+        id: users.id,
+        name: users.name,
+        email: users.email,
+        role: users.role,
+        created_at: users.created_at,
+        updated_at: users.updated_at,
+      })
+      .from(users);
 
     if (whereCondition) {
       dataQuery = dataQuery.where(whereCondition);
@@ -66,7 +72,7 @@ export const getAllUsers = async ({ page = 1, limit = 10, search = '', sortBy = 
         limit,
         total,
         totalPages: Math.ceil(total / limit),
-      }
+      },
     };
   } catch (error) {
     logger.error('Error fetching users:', error);
@@ -74,8 +80,7 @@ export const getAllUsers = async ({ page = 1, limit = 10, search = '', sortBy = 
   }
 };
 
-
-export const getUserById = async (userId) => {
+export const getUserById = async userId => {
   try {
     const [user] = await db
       .select({
@@ -104,7 +109,7 @@ export const getUserById = async (userId) => {
   }
 };
 
-export const getUserByEmail = async (email) => {
+export const getUserByEmail = async email => {
   try {
     const [user] = await db
       .select({
@@ -126,7 +131,6 @@ export const getUserByEmail = async (email) => {
   }
 };
 
-
 export const updateUser = async (userId, updateData) => {
   try {
     const existingUser = await getUserById(userId);
@@ -142,7 +146,7 @@ export const updateUser = async (userId, updateData) => {
       updateData.password = await hashPassword(updateData.password);
     }
 
-    const { id, created_at, ...allowedUpdates } = updateData;
+    const { id: _id, created_at: _created_at, ...allowedUpdates } = updateData;
     const updatePayload = {
       ...allowedUpdates,
       updated_at: new Date(),
@@ -165,20 +169,21 @@ export const updateUser = async (userId, updateData) => {
     return updatedUser;
   } catch (error) {
     logger.error('Error updating user:', error);
-    if (error.message === 'User not found' || error.message === 'Email already exists') {
+    if (
+      error.message === 'User not found' ||
+      error.message === 'Email already exists'
+    ) {
       throw error;
     }
     throw new Error('Failed to update user');
   }
 };
 
-export const deleteUser = async (userId) => {
+export const deleteUser = async userId => {
   try {
     await getUserById(userId);
 
-    await db
-      .delete(users)
-      .where(eq(users.id, userId));
+    await db.delete(users).where(eq(users.id, userId));
 
     logger.info(`User ${userId} deleted successfully`);
     return { message: 'User deleted successfully' };
@@ -191,10 +196,9 @@ export const deleteUser = async (userId) => {
   }
 };
 
-export const getCurrentUser = async (userId) => {
+export const getCurrentUser = async userId => {
   return getUserById(userId);
 };
-
 
 export const updateCurrentUser = async (userId, updateData) => {
   if (updateData.role) {
@@ -202,4 +206,3 @@ export const updateCurrentUser = async (userId, updateData) => {
   }
   return updateUser(userId, updateData);
 };
-

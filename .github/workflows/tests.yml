@@ -1,0 +1,85 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+  pull_request:
+    branches:
+      - main
+      - staging
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        id: tests
+        continue-on-error: true
+        run: |
+          npm test || echo "tests_failed=true" >> $GITHUB_OUTPUT
+        env:
+          NODE_ENV: test
+          NODE_OPTIONS: --experimental-vm-modules
+          DATABASE_URL: ${{ secrets.DATABASE_URL || 'postgresql://test:test@localhost:5432/testdb' }}
+          JWT_SECRET: test-secret-key-for-ci
+          ARCJET_KEY: ${{ secrets.ARCJET_KEY || 'test-key' }}
+          LOG_LEVEL: error
+
+      - name: Upload coverage reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-reports
+          path: coverage/
+          retention-days: 30
+
+      - name: Generate test summary
+        if: always()
+        run: |
+          echo "## Test Results" >> $GITHUB_STEP_SUMMARY
+
+          if [ -f coverage/coverage-final.json ]; then
+            echo "### Coverage Summary" >> $GITHUB_STEP_SUMMARY
+            echo "Coverage data is available in the artifacts." >> $GITHUB_STEP_SUMMARY
+            echo "- **Coverage Report:** Available in artifacts (coverage-reports)" >> $GITHUB_STEP_SUMMARY
+            echo "- **HTML Report:** Available in artifacts (coverage/lcov-report/index.html)" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [ -f coverage/lcov.info ]; then
+            echo "### Coverage Report" >> $GITHUB_STEP_SUMMARY
+            echo "Coverage report (LCOV format) is available in the artifacts." >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [ "${{ steps.tests.outputs.tests_failed }}" == "true" ]; then
+            echo "### ❌ Tests Failed" >> $GITHUB_STEP_SUMMARY
+            echo "Some tests failed. Please check the logs above for details." >> $GITHUB_STEP_SUMMARY
+            echo "::error::Test suite failed. Please check the test output above."
+          else
+            echo "### ✅ All Tests Passed" >> $GITHUB_STEP_SUMMARY
+            echo "All tests completed successfully." >> $GITHUB_STEP_SUMMARY
+            if [ -d coverage ]; then
+              echo "Coverage reports have been uploaded as artifacts." >> $GITHUB_STEP_SUMMARY
+            fi
+          fi
+
+      - name: Annotate test failures
+        if: steps.tests.outputs.tests_failed == 'true'
+        run: |
+          echo "::error::Test suite failed. Check the test output above for details."
+          exit 1

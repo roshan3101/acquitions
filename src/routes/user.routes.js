@@ -24,4 +24,3 @@ router.patch('/:id', authorize('admin'), updateUserById);
 router.delete('/:id', authorize('admin'), deleteUserById);
 
 export default router;
-

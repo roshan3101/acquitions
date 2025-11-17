@@ -27,7 +27,9 @@ export const getUsers = async (req, res, next) => {
 
     const result = await getAllUsers(queryResult.data);
 
-    logger.info(`Users fetched: page ${queryResult.data.page}, total: ${result.pagination.total}`);
+    logger.info(
+      `Users fetched: page ${queryResult.data.page}, total: ${result.pagination.total}`
+    );
     return res.status(200).json({
       message: 'Users fetched successfully',
       ...result,
@@ -37,7 +39,6 @@ export const getUsers = async (req, res, next) => {
     next(error);
   }
 };
-
 
 export const getMe = async (req, res, next) => {
   try {
@@ -82,7 +83,6 @@ export const getUser = async (req, res, next) => {
   }
 };
 
-
 export const updateMe = async (req, res, next) => {
   try {
     if (!req.body || typeof req.body !== 'object') {
@@ -101,7 +101,10 @@ export const updateMe = async (req, res, next) => {
       });
     }
 
-    const updatedUser = await updateCurrentUser(req.user.id, validationResult.data);
+    const updatedUser = await updateCurrentUser(
+      req.user.id,
+      validationResult.data
+    );
 
     logger.info(`User ${req.user.id} updated their profile`);
     return res.status(200).json({
@@ -119,7 +122,6 @@ export const updateMe = async (req, res, next) => {
     next(error);
   }
 };
-
 
 export const updateUserById = async (req, res, next) => {
   try {
@@ -167,7 +169,6 @@ export const updateUserById = async (req, res, next) => {
   }
 };
 
-
 export const deleteUserById = async (req, res, next) => {
   try {
     const userId = parseInt(req.params.id, 10);
@@ -200,4 +201,3 @@ export const deleteUserById = async (req, res, next) => {
     next(error);
   }
 };
-

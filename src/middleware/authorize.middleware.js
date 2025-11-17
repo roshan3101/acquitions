@@ -6,17 +6,19 @@ export const authorize = (...allowedRoles) => {
       if (!req.user) {
         return res.status(401).json({
           error: 'Unauthorized',
-          message: 'Authentication required'
+          message: 'Authentication required',
         });
       }
 
       const userRole = req.user.role;
 
       if (!allowedRoles.includes(userRole)) {
-        logger.warn(`Access denied for user ${req.user.id} with role ${userRole} to ${req.path}`);
+        logger.warn(
+          `Access denied for user ${req.user.id} with role ${userRole} to ${req.path}`
+        );
         return res.status(403).json({
           error: 'Forbidden',
-          message: 'You do not have permission to access this resource'
+          message: 'You do not have permission to access this resource',
         });
       }
 
@@ -28,14 +30,13 @@ export const authorize = (...allowedRoles) => {
   };
 };
 
-
 export const authorizeSelfOrAdmin = (userIdParam = 'id') => {
   return (req, res, next) => {
     try {
       if (!req.user) {
         return res.status(401).json({
           error: 'Unauthorized',
-          message: 'Authentication required'
+          message: 'Authentication required',
         });
       }
 
@@ -44,10 +45,12 @@ export const authorizeSelfOrAdmin = (userIdParam = 'id') => {
       const isAdmin = req.user.role === 'admin';
 
       if (currentUserId !== requestedUserId && !isAdmin) {
-        logger.warn(`Access denied: User ${currentUserId} tried to access user ${requestedUserId} resource`);
+        logger.warn(
+          `Access denied: User ${currentUserId} tried to access user ${requestedUserId} resource`
+        );
         return res.status(403).json({
           error: 'Forbidden',
-          message: 'You can only access your own resources'
+          message: 'You can only access your own resources',
         });
       }
 
@@ -58,4 +61,3 @@ export const authorizeSelfOrAdmin = (userIdParam = 'id') => {
     }
   };
 };
-
