@@ -149,8 +149,7 @@ const config = {
   // The test environment that will be used for testing
   testEnvironment: 'node',
 
-  // Enable ES modules support
-  extensionsToTreatAsEsm: ['.js'],
+  // Module name mapping for import aliases
   moduleNameMapper: {
     '^#config/(.*)$': '<rootDir>/src/config/$1',
     '^#models/(.*)$': '<rootDir>/src/models/$1',

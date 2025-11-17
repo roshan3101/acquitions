@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20% </span>
+                <span class="strong">17.46% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/60</span>
+                <span class='fraction'>11/63</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20% </span>
+                <span class="strong">17.46% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/60</span>
+                <span class='fraction'>11/63</span>
             </div>
         
             
@@ -124,7 +124,9 @@
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -151,8 +153,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -182,9 +185,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import logger from '#config/logger.js';
 &nbsp;
 export const authorize = (...allowedRoles) =&gt; {
@@ -193,17 +197,19 @@ export const authorize = (...allowedRoles) =&gt; {
 <span class="cstat-no" title="statement not covered" >      if (!req.user) {</span>
 <span class="cstat-no" title="statement not covered" >        return res.status(401).json({</span>
 <span class="cstat-no" title="statement not covered" >          error: 'Unauthorized',</span>
-<span class="cstat-no" title="statement not covered" >          message: 'Authentication required'</span>
+<span class="cstat-no" title="statement not covered" >          message: 'Authentication required',</span>
 <span class="cstat-no" title="statement not covered" >        });</span>
 <span class="cstat-no" title="statement not covered" >      }</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >      const userRole = req.user.role;</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >      if (!allowedRoles.includes(userRole)) {</span>
-<span class="cstat-no" title="statement not covered" >        logger.warn(`Access denied for user ${req.user.id} with role ${userRole} to ${req.path}`);</span>
+<span class="cstat-no" title="statement not covered" >        logger.warn(</span>
+<span class="cstat-no" title="statement not covered" >          `Access denied for user ${req.user.id} with role ${userRole} to ${req.path}`</span>
+<span class="cstat-no" title="statement not covered" >        );</span>
 <span class="cstat-no" title="statement not covered" >        return res.status(403).json({</span>
 <span class="cstat-no" title="statement not covered" >          error: 'Forbidden',</span>
-<span class="cstat-no" title="statement not covered" >          message: 'You do not have permission to access this resource'</span>
+<span class="cstat-no" title="statement not covered" >          message: 'You do not have permission to access this resource',</span>
 <span class="cstat-no" title="statement not covered" >        });</span>
 <span class="cstat-no" title="statement not covered" >      }</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -215,14 +221,13 @@ export const authorize = (...allowedRoles) =&gt; {
   };
 };
 &nbsp;
-&nbsp;
 export const authorizeSelfOrAdmin = (userIdParam = 'id') =&gt; {
   return (req, res, next) =&gt; {
 <span class="cstat-no" title="statement not covered" >    try {</span>
 <span class="cstat-no" title="statement not covered" >      if (!req.user) {</span>
 <span class="cstat-no" title="statement not covered" >        return res.status(401).json({</span>
 <span class="cstat-no" title="statement not covered" >          error: 'Unauthorized',</span>
-<span class="cstat-no" title="statement not covered" >          message: 'Authentication required'</span>
+<span class="cstat-no" title="statement not covered" >          message: 'Authentication required',</span>
 <span class="cstat-no" title="statement not covered" >        });</span>
 <span class="cstat-no" title="statement not covered" >      }</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -231,10 +236,12 @@ export const authorizeSelfOrAdmin = (userIdParam = 'id') =&gt; {
 <span class="cstat-no" title="statement not covered" >      const isAdmin = req.user.role === 'admin';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >      if (currentUserId !== requestedUserId &amp;&amp; !isAdmin) {</span>
-<span class="cstat-no" title="statement not covered" >        logger.warn(`Access denied: User ${currentUserId} tried to access user ${requestedUserId} resource`);</span>
+<span class="cstat-no" title="statement not covered" >        logger.warn(</span>
+<span class="cstat-no" title="statement not covered" >          `Access denied: User ${currentUserId} tried to access user ${requestedUserId} resource`</span>
+<span class="cstat-no" title="statement not covered" >        );</span>
 <span class="cstat-no" title="statement not covered" >        return res.status(403).json({</span>
 <span class="cstat-no" title="statement not covered" >          error: 'Forbidden',</span>
-<span class="cstat-no" title="statement not covered" >          message: 'You can only access your own resources'</span>
+<span class="cstat-no" title="statement not covered" >          message: 'You can only access your own resources',</span>
 <span class="cstat-no" title="statement not covered" >        });</span>
 <span class="cstat-no" title="statement not covered" >      }</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -245,7 +252,6 @@ export const authorizeSelfOrAdmin = (userIdParam = 'id') =&gt; {
 <span class="cstat-no" title="statement not covered" >    }</span>
   };
 };
-&nbsp;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -253,7 +259,7 @@ export const authorizeSelfOrAdmin = (userIdParam = 'id') =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-17T13:45:48.187Z
+                at 2025-11-17T14:27:51.354Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
