@@ -63,3 +63,26 @@
 {"level":"info","message":"User registered successfully: roshan12@gmail.com","service":"acquitions-api"}
 {"level":"info","message":"::ffff:172.18.0.1 - - [17/Nov/2025:13:22:35 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 118 \"-\" \"PostmanRuntime/7.49.1\"","service":"acquitions-api"}
 {"level":"info","message":"::1 - - [17/Nov/2025:13:22:44 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:23:15 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"User signed out successfully","service":"acquitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [17/Nov/2025:13:23:31 +0000] \"POST /api/auth/sign-out HTTP/1.1\" 200 42 \"-\" \"PostmanRuntime/7.49.1\"","service":"acquitions-api"}
+{"level":"info","message":"User signed in successfully: roshan@gmail.com","service":"acquitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [17/Nov/2025:13:23:37 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 115 \"-\" \"PostmanRuntime/7.49.1\"","service":"acquitions-api"}
+{"level":"info","message":"User signed out successfully","service":"acquitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [17/Nov/2025:13:23:43 +0000] \"POST /api/auth/sign-out HTTP/1.1\" 200 42 \"-\" \"PostmanRuntime/7.49.1\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:23:45 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:24:15 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:24:46 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"User signed in successfully: roshan12@gmail.com","service":"acquitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [17/Nov/2025:13:24:56 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 117 \"-\" \"PostmanRuntime/7.49.1\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:25:16 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"Users fetched: page 1, total: 2","service":"acquitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [17/Nov/2025:13:25:33 +0000] \"GET /api/users HTTP/1.1\" 200 410 \"-\" \"PostmanRuntime/7.49.1\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:25:46 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:26:17 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:26:47 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:27:17 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:27:48 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:28:18 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:28:49 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquitions-api"}
+{"level":"info","message":"::1 - - [17/Nov/2025:13:29:19 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquitions-api"}
